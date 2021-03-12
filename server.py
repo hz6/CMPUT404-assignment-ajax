@@ -74,7 +74,8 @@ def flask_post_json():
 @app.route("/")
 def hello():
     '''Return something coherent here.. perhaps redirect to /static/index.html '''
-    res = flask.redirect("http://localhost:5000/static/index.html")
+    path = "http://localhost:5000/static/index.html"
+    res = flask.redirect(path)
     return res
 
 @app.route("/entity/<entity>", methods=['POST','PUT'])
@@ -103,7 +104,7 @@ def get_entity(entity):
 @app.route("/clear", methods=['POST','GET'])
 def clear():
     '''Clear the world out!'''
-    # the world is cleared
+    # the world is cleared,return a world with an empty space (empty dict)
     return {}
 
 if __name__ == "__main__":
