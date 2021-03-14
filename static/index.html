@@ -260,12 +260,11 @@
 
         function update() {
             //XXX: TODO Get the world from the webservice using a XMLHTTPRequest
-            url = "http://localhost:5000/world"
-            const retrieve_data = new XMLHttpRequest();
-            retrieve_data.open("GET", url);
-            retrieve_data.send();
-            retrieve_data.onload() = () => {
-                world = JSON.parse(retrieve_data.response);
+            const response = new XMLHttpRequest();
+            response.open("GET", "http://localhost:5000/world");
+            response.send();
+            response.onload() = () => {
+                world = JSON.parse(response.response);
                 drawNextFrame();
             }
             drawFrame();
